@@ -1,0 +1,232 @@
+.icon{
+    background-color: white;
+    width: 32px;
+    height: 32px;
+    display: block;
+
+    &.icon-emitir-documento{
+        -webkit-mask: url("../../images/icon-description.svg") no-repeat center;
+        mask: url("../../images/icon-description.svg") no-repeat center;
+    }
+
+    &.icon-home{
+        -webkit-mask: url("../../images/icon-home.svg") no-repeat center;
+        mask: url("../../images/icon-home.svg") no-repeat center;
+    }
+
+    &.icon-nova-despesa{
+        -webkit-mask: url("../../images/icon-attach_file.svg") no-repeat center;
+        mask: url("../../images/icon-attach_file.svg") no-repeat center;
+    }
+
+    &.icon-documentos{
+        -webkit-mask: url("../../images/icon-find.svg") no-repeat center;
+        mask: url("../../images/icon-find.svg") no-repeat center;
+    }
+
+    &.icon-euro{
+        -webkit-mask: url("../../images/icon-euro_symbol.svg") no-repeat center;
+        mask: url("../../images/icon-euro_symbol.svg") no-repeat center;
+    }
+
+    &.icon-reconciliacoes{
+        -webkit-mask: url("../../images/icon-hub.svg") no-repeat center;
+        mask: url("../../images/icon-hub.svg") no-repeat center;
+    }
+
+    &.icon-analises{
+        -webkit-mask: url("../../images/icon-assessment.svg") no-repeat center;
+        mask: url("../../images/icon-assessment.svg") no-repeat center;
+    }
+
+    &.icon-pivot{
+        -webkit-mask: url("../../images/icon-pivot_table_chart.svg") no-repeat center;
+        mask: url("../../images/icon-pivot_table_chart.svg") no-repeat center;
+    }
+
+    &.icon-configuracoes{
+        -webkit-mask: url("../../images/icon-settings.svg") no-repeat center;
+        mask: url("../../images/icon-settings.svg") no-repeat center;
+    }
+
+    &.icon-sync{
+        -webkit-mask: url("../../images/icon-sync.svg") no-repeat center;
+        mask: url("../../images/icon-sync.svg") no-repeat center;
+    }
+
+    &.icon-plus{
+        -webkit-mask: url("../../images/icon-add.svg") no-repeat center;
+        mask: url("../../images/icon-add.svg") no-repeat center;
+    }
+
+    &.icon-more-vertical{
+        -webkit-mask: url("../../images/icon-more_vert.svg") no-repeat center;
+        mask: url("../../images/icon-more_vert.svg") no-repeat center;
+    }
+
+    &.icon-link{
+        -webkit-mask: url("../../images/icon-link.svg") no-repeat center;
+        mask: url("../../images/icon-link.svg") no-repeat center;
+    }
+
+    &.icon-delete{
+        -webkit-mask: url("../../images/icon-cancel.svg") no-repeat center;
+        mask: url("../../images/icon-cancel.svg") no-repeat center;
+    }
+
+    &.icon-file{
+        -webkit-mask: url("../../images/icon-insert_drive_file.svg") no-repeat center;
+        mask: url("../../images/icon-insert_drive_file.svg") no-repeat center;
+    }
+
+    &.icon-edit{
+        -webkit-mask: url("../../images/icon-edit.svg") no-repeat center;
+        mask: url("../../images/icon-edit.svg") no-repeat center;
+    }
+
+    &.icon-date{
+        -webkit-mask: url("../../images/icon-today.svg") no-repeat center;
+        mask: url("../../images/icon-today.svg") no-repeat center;
+    }
+
+    &.icon-upload{
+        -webkit-mask: url("../../images/icon-cloud_upload.svg") no-repeat center;
+        mask: url("../../images/icon-cloud_upload.svg") no-repeat center;
+    }
+
+    &.icon-card{
+        -webkit-mask: url("../../images/icon-payments.svg") no-repeat center;
+        mask: url("../../images/icon-payments.svg") no-repeat center;
+    }
+
+    &.icon-menu{
+        -webkit-mask: url("../../images/icon-menu.svg") no-repeat center;
+        mask: url("../../images/icon-menu.svg") no-repeat center;
+    }
+
+    &.icon-close{
+        -webkit-mask: url("../../images/icon-close.svg") no-repeat center;
+        mask: url("../../images/icon-close.svg") no-repeat center;
+    }
+
+    &.icon-filter{
+        -webkit-mask: url("../../images/icon-filter-list.svg") no-repeat center;
+        mask: url("../../images/icon-filter-list.svg") no-repeat center;
+    }
+
+    &.icon-fast-doc{
+        -webkit-mask: url("../../images/icon-auto_fix_high.svg") no-repeat center;
+        mask: url("../../images/icon-auto_fix_high.svg") no-repeat center;
+    }
+
+    &.icon-lock{
+        -webkit-mask: url("../../images/icon-lock.svg") no-repeat center;
+        mask: url("../../images/icon-lock.svg") no-repeat center;
+    }
+
+    &.icon-email{
+        -webkit-mask: url("../../images/icon-mails.svg") no-repeat center;
+        mask: url("../../images/icon-mails.svg") no-repeat center;
+        width: 24px;
+    }
+
+    &.icon-print{
+        -webkit-mask: url("../../images/icon-print.svg") no-repeat center;
+        mask: url("../../images/icon-print.svg") no-repeat center;
+    }
+
+    &.icon-cloud-download{
+        -webkit-mask: url("../../images/icon-cloud_download.svg") no-repeat center;
+        mask: url("../../images/icon-cloud_download.svg") no-repeat center;
+    }
+
+    &.icon-preview{
+        -webkit-mask: url("../../images/icon-vertical_split.svg") no-repeat center;
+        mask: url("../../images/icon-vertical_split.svg") no-repeat center;
+    }
+
+    &.icon-inbox{
+        -webkit-mask: url("../../images/icon-inbox.svg") no-repeat center;
+        mask: url("../../images/icon-inbox.svg") no-repeat center;
+    }
+
+    &.icon-arrow-up-blue{
+        -webkit-mask: url("../../images/icon-arrow.svg") no-repeat center;
+        mask: url("../../images/icon-arrow.svg") no-repeat center;
+        background-color: $blue;
+    }
+
+    &.icon-arrow-down-red{
+        -webkit-mask: url("../../images/icon-arrow.svg") no-repeat center;
+        mask: url("../../images/icon-arrow.svg") no-repeat center;
+        transform: rotate(180deg);
+        background-color: $red;
+    }
+
+    &.icon-favorite{
+        -webkit-mask: url("../../images/icon-star.svg") no-repeat center;
+        mask: url("../../images/icon-star.svg") no-repeat center;
+    }
+
+    &.icon-pdf{
+        -webkit-mask: url("../../images/icon-picture_as_pdf.svg") no-repeat center;
+        mask: url("../../images/icon-picture_as_pdf.svg") no-repeat center;
+    }
+
+    &.icon-arrow-down{
+        -webkit-mask: url("../../images/icon-keyboard_arrow_down.svg") no-repeat center;
+        mask: url("../../images/icon-keyboard_arrow_down.svg") no-repeat center;
+    }
+
+    &.icon-done{
+        -webkit-mask: url("../../images/icon-done.svg") no-repeat center;
+        mask: url("../../images/icon-done.svg") no-repeat center;
+    }
+
+    &.icon-favorite{
+        -webkit-mask: url("../../images/icon-star.svg") no-repeat center;
+        mask: url("../../images/icon-star.svg") no-repeat center;
+    }
+
+    &.icon-save{
+        -webkit-mask: url("../../images/icon-save.svg") no-repeat center;
+        mask: url("../../images/icon-save.svg") no-repeat center;
+    }
+
+    &.icon-search{
+        -webkit-mask: url("../../images/icon-search.svg") no-repeat center;
+        mask: url("../../images/icon-search.svg") no-repeat center;
+    }
+
+    &.icon-recycle{
+        -webkit-mask: url("../../images/icon-recycle.svg") no-repeat center;
+        mask: url("../../images/icon-recycle.svg") no-repeat center;
+    }
+
+    &.icon-history{
+        -webkit-mask: url("../../images/icon-history.svg") no-repeat center;
+        mask: url("../../images/icon-history.svg") no-repeat center;
+    }
+
+    &.icon-autofix{
+        -webkit-mask: url("../../images/icon-auto_fix_high.svg") no-repeat center;
+        mask: url("../../images/icon-auto_fix_high.svg") no-repeat center;
+    }
+
+    &.icon-refresh{
+        -webkit-mask: url("../../images/icon-refresh.svg") no-repeat center;
+        mask: url("../../images/icon-refresh.svg") no-repeat center;
+    }
+
+    &.icon-account_balance{
+        -webkit-mask: url("../../images/icon-account_balance.svg") no-repeat center;
+        mask: url("../../images/icon-account_balance.svg") no-repeat center;
+    }
+
+    &.icon-manage_search{
+        -webkit-mask: url("../../images/icon-manage_search.svg") no-repeat center;
+        mask: url("../../images/icon-manage_search.svg") no-repeat center;
+    }
+
+    
+}

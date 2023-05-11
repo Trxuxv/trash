@@ -1,0 +1,49 @@
+input{
+    border: 0;
+    border-bottom: 2px solid $gray_300;
+    font-size: rem(14px);
+    color: rgba(0,0,0,0.3);
+    line-height: rem(30px);
+    font-family: $jtmarnie-medium;
+    width: 100%;
+
+    &::placeholder{
+        color: rgba(0,0,0,0.3);
+    }
+
+    &:focus-visible{
+        outline: none;
+    }
+}
+
+.form-group{
+    position: relative;
+    width: 100%;
+    .icon{
+        background-color: black;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 24px;
+    }
+}
+
+.date{
+    background-image: url("../../images/icon-today.svg");
+    background-repeat: no-repeat;
+    background-position: right center;
+    &::-webkit-calendar-picker-indicator {
+        display: none;
+        -webkit-appearance: none;
+    }
+}
+
+.search-input{
+    &::-webkit-search-decoration,
+    &::-webkit-search-cancel-button,
+    &::-webkit-search-results-button,
+    &::-webkit-search-results-decoration { 
+        display: none;
+    }
+}

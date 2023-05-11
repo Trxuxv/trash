@@ -1,0 +1,36 @@
+.tag{
+    display: block;
+    width: 50px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px 0;
+    background-color: transparent;
+    font-size: rem(7px);
+    text-transform: uppercase;
+    transform: rotate(-90deg);
+    border-bottom: 1px solid #e4e4e4;
+    position: absolute;
+    left: -15px;
+    color: $gray-700;
+    font-family: $jtmarnie-bold;
+    
+
+    &.tag-closed{
+        background-color: $black;
+        color: #FFFFFF;
+    }
+    &.tag-draft{
+        background-color: $red;
+        color: #FFFFFF;
+    }
+    &.tag-preview{
+        background-color: $yellow;
+    }
+    &.tag-new{
+        background-color: $blue;
+        color: #FFFFFF;
+    }
+
+}

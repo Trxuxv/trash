@@ -1,0 +1,68 @@
+
+
+@mixin font-face($name, $file) {
+  @font-face {
+    font-family: "#{$name}";
+    src: url("../../fonts/#{$file}.eot");
+    src: url("../../fonts/#{$file}.eot?#iefix") format("embedded-opentype"),
+      url("../../fonts/#{$file}.woff") format("woff"),
+      url("../../fonts/#{$file}.ttf") format("truetype"),
+      url("../../fonts/#{$file}.svg?#webfont") format("svg");
+  }
+}
+
+//Graphik font
+@include font-face("GraphikThin", "Graphik-Thin");
+@include font-face("GraphikRegular", "Graphik-Regular");
+@include font-face("GraphikMedium", "Graphik-Medium");
+@include font-face("GraphikSemibold", "Graphik-Semibold");
+@include font-face("GraphikBold", "Graphik-Bold");
+
+//Lato font
+@include font-face("LatoSemibold", "Lato-Semibold");
+
+//JT-Marnie font
+@include font-face("JTMarnieThin", "JTMarnie-Thin");
+@include font-face("JTMarnieLight", "JTMarnie-Light");
+//@include font-face("JTMarnieRegular", "JTMarnie-Regular");
+@include font-face("JTMarnieMedium", "JTMarnie-Medium");
+//@include font-face("JTMarnieSemibold", "JTMarnie-Semibold");
+@include font-face("JTMarnieBold", "JTMarnie-Bold");
+
+$graphik-thin: "GraphikThin", sans-serif;
+$graphik-regular: "GraphikRegular", sans-serif;
+$graphik-medium: "GraphikMedium", sans-serif;
+$graphik-semibold: "GraphikSemibold", sans-serif;
+$graphik-bold: "GraphikBold", sans-serif;
+
+$jtmarnie-light: "JTMarnie-Light", sans-serif;
+$jtmarnie-medium: "JTMarnie-Medium", sans-serif;
+$jtmarnie-bold: "JTMarnie-Bold", sans-serif;
+
+
+html,
+body {
+  font-size: 16px;
+  hyphens: none;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+  font-family: $graphik-regular;
+  letter-spacing: 0.24px;
+  font-weight: 500;
+  word-break: break-word;
+  color: $gray-700;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: $jtmarnie-bold;
+  word-break: break-word;
+}

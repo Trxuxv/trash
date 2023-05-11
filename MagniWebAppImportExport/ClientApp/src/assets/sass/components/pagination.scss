@@ -1,0 +1,127 @@
+.pagination{
+    margin: 20px auto 20px auto;
+    width: 100%;
+    max-width: 300px;
+    ul{
+        list-style: none;
+        display: inline-flex;
+        li{
+            border: 1px solid $gray-200;
+            border-right: 0;
+            padding: 3px 8px;
+            display: flex;
+            font-family: $jtmarnie-bold;
+            align-items: center;
+            cursor: pointer;
+            a{
+                color: $black;
+                line-height: rem(12px);
+                font-size: rem(14px);
+            }
+
+            &.active{
+                background-color: $blue;
+                color: #FFFFFF;
+            }
+
+            &:last-child{
+                border-right: 1px solid $gray-200;
+                a{
+                    text-decoration: underline;
+                }
+            }
+
+            &:hover{
+                background-color: $gray-300;
+                cursor: pointer;
+                color: #FFFFFF;
+            }
+
+            &.last-item{
+                padding: 3px 0;
+                span{
+                    transform: rotate(-90deg);
+                    height: 24px;
+                    width: 24px;
+                }
+            }
+
+            &.first-item{
+                padding: 3px 0;
+                span{
+                    transform: rotate(90deg);
+                    height: 24px;
+                    width: 24px;
+                }
+            }
+        }
+    }
+
+    &.pagination-movimentos{
+        text-align: right;
+        padding-right: 20px;
+
+        >span{
+            display: none;
+        }
+
+        @media(max-width: 1080px){
+            //text-align: center;
+            padding: 0;
+            order: 1;
+            flex-basis: 33%;
+            >span{
+                display: block;
+                font-size: rem(12px);
+                &+.pagination{
+                    margin-top: 5px;
+                }
+            }
+
+            ul{
+                li{
+                    div{
+                        .icon{
+                            background-color: $gray-600;
+                        }
+                    }
+                }
+            }
+            
+
+        }
+
+    }
+
+    &.pagination-documentos{
+        padding-left: 50px;
+
+        >span{
+            display: none;
+        }
+
+        @media(max-width: 1080px){
+            padding: 0;
+            order: 1;
+            //text-align: center;
+            flex-basis: 33%;
+            >span{
+                display: block;
+                font-size: rem(12px);
+                &+.pagination{
+                    margin-top: 5px;
+                }
+            }
+
+            ul{
+                li{
+                    div{
+                        .icon{
+                            background-color: $gray-600;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
