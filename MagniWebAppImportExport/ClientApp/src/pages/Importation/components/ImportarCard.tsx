@@ -1,5 +1,6 @@
 ﻿interface Props {
     nomeArquivo: string;
+    tamanhoArquivo: string;
     importar: ($event: any) => void;
 }
 
@@ -10,7 +11,7 @@ const ImportarCard = (prop: Props) => {
 
     return (
         <div className="h-72 bg-white w-5/6 mt-5 rounded-lg shadow-md block flex flex-col items-center justify-center relative">
-            <div className="text-lg h-1/3 w-full flex items-center pl-16 text-black font-bold">Importar/Anexar listas de movimentos bancarios (CSV ou Excel)</div>
+            <div className="text-lg h-1/3 w-full flex items-center pl-16 text-black font-bold">Importar/Anexar listas de movimentos bancários (CSV ou Excel)</div>
             <hr className="w-5/6 ml-16 self-start" />
             <div className="h-5/6 w-full flex items-center justify-center">
                 <input onChange={handleImportar} type="file" name="file" className="custom-file-input bg-blue-600 hidden" id="inputGroupFile" required
@@ -24,14 +25,14 @@ const ImportarCard = (prop: Props) => {
             </div>
 
             {prop.nomeArquivo ? (
-                <span className="text-xs flex h-8 font-bold text-black w-5/6">{prop.nomeArquivo}
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="ml-2 text-lime-600 w-4 h-4">
+                <span className="text-xs flex h-8 font-bold text-black w-5/6">{prop.nomeArquivo} <span className="font-normal text-xs ml-1">({prop.tamanhoArquivo})</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="3" stroke="currentColor" className="ml-1 green-correct-signal w-3 h-3 mt-1">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M4.5 12.75l6 6 9-13.5" />
                     </svg>
                 </span>) : <></>}
             <div className=" h-1/6 w-full flex items-center pl-16 border-b"></div>
         </div>
-        )
+    )
 }
 
 export default ImportarCard;

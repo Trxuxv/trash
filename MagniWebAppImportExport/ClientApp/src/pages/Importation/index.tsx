@@ -62,6 +62,8 @@ export default function Importation() {
 
     const [nomeArquivo, setNomeArquivo] = useState<string>('');
 
+    const [tamanhoArquivo, settamanhoArquivo] = useState<string>('');
+
     const [colunas, setColunas] = useState<ColunaModel[]>([]);
 
     const [linhasErro, setLinhasErro] = useState<any[]>([]);
@@ -349,7 +351,9 @@ export default function Importation() {
         setisLoading(true);
 
         const files = $event.target.files;
+
         if (files.length) {
+            settamanhoArquivo(files[0].size + " KB");
             const file = files[0];
 
             setNomeArquivo(file.name.toString());
@@ -473,7 +477,7 @@ export default function Importation() {
         <div className={StyleClass.SelectStyle("main")}>
             <ListaModeloCard />
             <Modelo setAbrirModelo={handleAbrirModelo} modelo={modelo} />
-            <ImportarCard nomeArquivo={nomeArquivo} importar={handleImport} />
+            <ImportarCard tamanhoArquivo={tamanhoArquivo} nomeArquivo={nomeArquivo} importar={handleImport} />
 
             {colunas.length > 0 && (
                 <div className={StyleClass.SelectStyle("container-one")}>

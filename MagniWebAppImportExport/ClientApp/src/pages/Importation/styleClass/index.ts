@@ -29,7 +29,7 @@
     },
     {
         className: "span-linhas-sucesso",
-        classStyle: "flex items-center text-xs font-black text-lime-500"
+        classStyle: "flex items-center text-xs font-black green-correct-signal"
     },
     {
         className: "titulo-info",
