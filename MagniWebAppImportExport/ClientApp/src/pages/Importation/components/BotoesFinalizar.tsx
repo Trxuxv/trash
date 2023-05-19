@@ -29,7 +29,7 @@ const BotoesFinalizar = (props: Props) => {
                     className={props.qtdeLinhasErro > 0 || props.podeEditarColuna || props.podeEditarLinha || props.podeAdicionarLinha || props.podeAdicionarColuna ?
                         "bg-gray-400 font-medium text-white  px-4 py-2 h-full uppercase text-xs ml-6 mr-32"
                         :
-                        "processar-enviar hover:bg-lime-800 font-medium text-white  px-4 py-2 h-full uppercase text-xs ml-6 mr-32"}>processar e enviar</button>
+                        "processar-enviar hover:bg-green-600 font-medium text-white  px-4 py-2 h-full uppercase text-xs ml-6 mr-32"}>processar e enviar</button>
             </div>
         </div>
         )
