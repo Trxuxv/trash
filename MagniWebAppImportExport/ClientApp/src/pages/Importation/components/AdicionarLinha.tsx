@@ -1,6 +1,7 @@
 ﻿import FunctionsUtil from "../../../utils/functions/FunctionsUtil";
 import ColunaModel from "../../../models/Importation/ColunaModel";
 import InputMask from 'react-input-mask';
+import DialogComponent from "../../../components/Dialog";
 
 interface Props {
     colunas: ColunaModel[];
@@ -62,9 +63,15 @@ const AdicionarLinha = (prop: Props) => {
                         }
                     </span>
                     <div className="w-full flex items-center justify-end my-2 pr-10">
-                        <button onClick={handleConfirmarAdicionarLinha} type="button" disabled={!prop.novaLinhaValida} className={!prop.novaLinhaValida ? "opacity-50 bg-cyan-500 text-white rounded px-6 py-2 text-xs mr-5" : "cursor-pointer rounded bg-cyan-500 text-white px-6 py-2 text-xs mr-5"}>
-                            Processar Edição
-                        </button>
+                        <DialogComponent
+                            disabled={!prop.novaLinhaValida}
+                            isEditAdd={true}
+                            messageConfirm={'Sim, confirmar'}
+                            className={!prop.novaLinhaValida ? "flex items-center opacity-50 bg-cyan-500 text-white rounded px-6 py-2 text-xs mr-5" : "flex items-center cursor-pointer rounded bg-cyan-500 text-white px-6 py-2 text-xs mr-5"}
+                            messageText="Confirma edição dos dados?"
+                            setConfirmation={handleConfirmarAdicionarLinha}
+                            nameButton="Processar edições"
+                            key="confirmarEditarLinha" />
                         <button onClick={handleCancelarAdicionarLinha} className="text-xs underline">Cancelar</button>
                     </div>
                 </div>

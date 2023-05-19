@@ -10,8 +10,8 @@ const Modelo = (prop: Props) => {
     }
 
     return (
-        <div className="h-auto bg-white w-5/6 mt-5 rounded-lg shadow-md py-1 flex flex-col items-center justify-center relative">
-            <div className="text-lg w-full h-16 flex items-center pl-14 text-black font-bold items-center justify-between cursor-pointer hover:bg-gray-100 rounded-full" onClick={handleAbrirModelo}>
+        <div className="h-auto bg-white w-5/6 mt-5 rounded-lg shadow-md pt-4 flex flex-col items-center justify-center relative">
+            <div className="text-lg w-full h-10 flex items-center pl-14 text-black font-bold items-center justify-between cursor-pointer hover:bg-gray-100 rounded-full" onClick={handleAbrirModelo}>
                 Veja como é fácil preencher as Listas de Movimentos Bancários
                 <div className="mr-40">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
@@ -26,9 +26,8 @@ const Modelo = (prop: Props) => {
 
                 </div>
             </div>
-            <hr className="w-5/6" />
-            <div className="h-5/6 w-full">
-                <div className="w-full h-20 flex pl-16 flex items-center text-base text-gray-500">
+            <div className="h-5/6 w-full mt-5">
+                <div className="h-16 mb-2 flex ml-14 flex items-center text-base text-gray-500 border-t border-t-gray-200" style={{width: "92%"} }>
                     Antes de importar suas Listas de Movimentos Bancários, certifique-se de que estão de acordo com o modelo a seguir:
                 </div>
                 {

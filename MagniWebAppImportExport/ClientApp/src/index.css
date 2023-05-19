@@ -47,38 +47,6 @@ code {
     background: rgb(236, 132, 100);
 }
 
-
-::-webkit-scrollbar {
-    width: 10px;
-    height: 10px
-}
-
-
-    ::-webkit-scrollbar :hover {
-        width: 30px;
-        height: 30px
-    }
-
-/* Track */
-::-webkit-scrollbar-track :hover {
-    width: 20px;
-    height: 20px;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-    background-color: darkgray;
-    border-radius: 3px;
-}
-
-    /* Handle on hover */
-    ::-webkit-scrollbar-thumb:hover {
-        background: gray;
-        height: 20px;
-        width: 20px;
-    }
-
-
 .green-correct-signal {
     color: #2bb21f;
 }
@@ -89,4 +57,68 @@ code {
 
 .modelo-btns {
     background: #88b43c;
+}
+
+.dados-consistentes {
+    color: #ea282d;
+}
+
+.linha-erro {
+    border-left: 1px solid #ec8464;
+    border-right: 1px solid #ec8464;
+    border-bottom: 1px solid #ec8464;
+}
+
+    .linha-erro::selection {
+        color: black;
+        font-weight: bold;
+        background: #8fb3ef;
+    }
+
+    .linha-erro:focus {
+        border: 3px solid #4285f4;
+        position: sticky;
+    }
+
+
+.primary-blue-text {
+    color: #4285f4;
+}
+
+.primary-blue-bg {
+    background-color: #4285f4;
+}
+
+.primary-blue-border {
+    border: 5px solid #4285f4;
+}
+
+.linha-edicao::selection {
+    color: black;
+    font-weight: bold;
+    background: #8fb3ef;
+}
+
+.linha-edicao:focus {
+    border: 3px solid #4285f4;
+    position: sticky;
+}
+
+.processar-enviar {
+    background: #87b33a;
+}
+
+#processing {
+    margin-left: -160px;
+    width: 140%;
+    background-size: contain;
+    background-image: url('assets/images/processo_sucesso.png');
+    animation: scroll 4s linear infinite;
+}
+
+
+@keyframes scroll {
+    to {
+        background-position: -500px 0;
+    }
 }

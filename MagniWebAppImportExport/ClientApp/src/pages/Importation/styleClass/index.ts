@@ -37,7 +37,7 @@
     },
     {
         className: "texto-dados-incosistentes",
-        classStyle: "mx-auto w-5/6 text-lg text-red-500 font-bold mb-2"
+        classStyle: "mx-auto w-5/6 text-lg dados-consistentes font-bold mb-2"
     },
     {
         className: "container-nova-coluna",
@@ -49,7 +49,7 @@
     },
     {
         className: "input-pode-adicionar-coluna",
-        classStyle: "outline-cyan-400 h-16 resize-none bg-white text-center break-words border-x border-b w-96 mx-auto h-full py-4"
+        classStyle: "outline-cyan-400 h-16 resize-none bg-white text-center break-words border-x border-b w-80 mx-auto h-full py-4"
     },
     {
         className: "container-editar-linha",
@@ -57,7 +57,7 @@
     },
     {
         className: "dialog-confirma-edicao-linha",
-        classStyle: "h-8 cursor-pointer rounded bg-cyan-500 text-white px-6 py-2 text-xs mr-2"
+        classStyle: "h-8 cursor-pointer rounded flex items-center bg-cyan-500 text-white px-6 py-2 text-xs mr-2"
     },
     {
         className: "botao-cancelar-edicao-linha",

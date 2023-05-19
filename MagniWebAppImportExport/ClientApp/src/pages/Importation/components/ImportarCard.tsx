@@ -11,8 +11,8 @@ const ImportarCard = (prop: Props) => {
 
     return (
         <div className="h-72 bg-white w-5/6 mt-5 rounded-lg shadow-md block flex flex-col items-center justify-center relative">
-            <div className="text-lg h-1/3 w-full flex items-center pl-16 text-black font-bold">Importar/Anexar listas de movimentos bancários (CSV ou Excel)</div>
-            <hr className="w-5/6 ml-16 self-start" />
+            <div className="text-lg h-1/3 w-full flex items-center pl-14 text-black font-bold pt-2">Importar/Anexar listas de movimentos bancários (CSV ou Excel)</div>
+            <hr className="mt-4 mb-2" style={{width: "92%"} } />
             <div className="h-5/6 w-full flex items-center justify-center">
                 <input onChange={handleImportar} type="file" name="file" className="custom-file-input bg-blue-600 hidden" id="inputGroupFile" required
                     accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel" />

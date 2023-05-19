@@ -17,6 +17,8 @@ const BotoesFinalizar = (props: Props) => {
             <div className="h-3/6">
                 {props.qtdeLinhasSucesso > 0 && props.qtdeLinhasErro > 0 && (
                     <DialogComponent
+                        isEditAdd={false}
+                        messageConfirm="SIM, excluir"
                         messageText="Confirma exclusão das linhas problemáticas?"
                         nameButton="excluir linhas problematicas e processar"
                         className="font-medium text-white bg-blue-500 px-4 py-2 h-full uppercase text-xs hover:bg-blue-600 shadow-md"
@@ -27,7 +29,7 @@ const BotoesFinalizar = (props: Props) => {
                     className={props.qtdeLinhasErro > 0 || props.podeEditarColuna || props.podeEditarLinha || props.podeAdicionarLinha || props.podeAdicionarColuna ?
                         "bg-gray-400 font-medium text-white  px-4 py-2 h-full uppercase text-xs ml-6 mr-32"
                         :
-                        "bg-lime-600 hover:bg-lime-800 font-medium text-white  px-4 py-2 h-full uppercase text-xs ml-6 mr-32"}>processar e enviar</button>
+                        "processar-enviar hover:bg-lime-800 font-medium text-white  px-4 py-2 h-full uppercase text-xs ml-6 mr-32"}>processar e enviar</button>
             </div>
         </div>
         )

@@ -60,23 +60,23 @@ const LinhasErro = (prop: Props) => {
                                                             maskPlaceholder={null}
                                                             mask={FunctionsUtil.Mask(t.formato)}
                                                             id={t.nome + ";" + index}
+                                                            onFocus={(evt) => evt.currentTarget.select()}
                                                             defaultValue={linha[prop.colunas[i].nome]}
                                                             onChange={prop.handleLinha}
-                                                            style={{ borderLeft: "1px solid #ec8464", borderRight: "1px solid #ec8464", borderBottom: "1px solid #ec8464" }} 
-                                                            className="text-center resize-none bg-red-50 w-80 mx-auto h-14 py-4"
+                                                            className="text-center resize-none linha-erro bg-red-50 w-80 mx-auto h-14 py-4"
                                                         >
                                                         </InputMask>
                                                     )
                                                     :
                                                     (
-                                                             <InputMask
+                                                        <InputMask
                                                             maskPlaceholder={null}
                                                             mask={FunctionsUtil.Mask(t.formato)}
-                                                                id={t.nome + ";" + index} 
-                                                                defaultValue={linha[prop.colunas[i].nome]} 
-                                                                onChange={prop.handleLinha} 
-                                                                className="text-gray-700 outline-red-400 h-14 resize-none bg-red-100 text-center break-words border-x border-b w-80 mx-auto py-4"
-                                                                style={{ borderColor: '#ec8464' }} 
+                                                            id={t.nome + ";" + index}
+                                                            onFocus={(evt) => evt.currentTarget.select()}
+                                                            defaultValue={linha[prop.colunas[i].nome]}
+                                                            onChange={prop.handleLinha}
+                                                            className="text-center resize-none linha-erro bg-red-100 w-80 mx-auto h-14 py-4"
                                                         >
                                                         </InputMask>
                                                     )
@@ -91,9 +91,11 @@ const LinhasErro = (prop: Props) => {
                     <tr>
                         <td>
                             <DialogComponent
+                                isEditAdd={true}
                                 messageText="Confirma edição dos dados?"
+                                messageConfirm="Sim, confirmar"
                                 nameButton="Processar Edição"
-                                className={prop.validar ? "h-8 cursor-pointer rounded errorbg text-white px-6 py-2 text-xs mr-6" : "pointer-events-none rounded h-8 opacity-50 rounded errorbg text-white px-6 py-2 text-xs mr-6"}
+                                className={prop.validar ? "h-8 flex items-center cursor-pointer rounded errorbg text-white px-6 py-2 text-xs mr-6" : "flex items-center pointer-events-none rounded h-8 opacity-50 rounded errorbg text-white px-6 py-2 text-xs mr-6"}
                                 setConfirmation={handleSalvarLinhasEditadas} />
                         </td>
                     </tr>

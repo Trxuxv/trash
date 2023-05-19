@@ -13,13 +13,13 @@ import AdicionarLinha from './components/AdicionarLinha';
 import DialogComponent from '../../components/Dialog';
 import ImportarCard from './components/ImportarCard';
 import BotoesEdicao from './components/BotoesEdicao';
+import React, { useEffect, useState } from 'react';
 import LinhasErro from './components/LinhasErros';
 import { Input } from "@material-tailwind/react";
 import Loading from '../../components/Loading';
 import Modelo from './components/ModeloCard';
 import Options from '../../utils/formats';
 import InputMask from 'react-input-mask';
-import React, { useState } from 'react';
 import StyleClass from './styleClass';
 import { read, utils } from 'xlsx';
 
@@ -33,6 +33,8 @@ export default function Importation() {
     const [formatoNovaColuna, setFormatoNovaColuna] = useState<string>("texto comum");
 
     const [nomeNovaColuna, setNomeNovaColuna] = useState<string>('unname column');
+
+    const [processing, setProcessing] = useState<boolean>(false);
 
     const [podeAdicionarColuna, setPodeAdicionarColuna] = useState<boolean>(false);
 
@@ -78,6 +80,18 @@ export default function Importation() {
 
     const [newObj, setnewObj] = useState({});
 
+    useEffect(() => {
+        setTimeout(() => {
+            setAlertaMensagem({ abrir: false, mensagem: "", sucesso: false })
+        }, 1000)
+    }, [alertaMensagem.abrir]);
+
+    useEffect(() => {
+        setTimeout(() => {
+            setProcessing(false);
+        }, 10000)
+    }, [processing]);
+
     //METHODS
     //------------Confirmar-----------
     const ConfirmarEditarLinhasInvalidas = () => {
@@ -91,7 +105,7 @@ export default function Importation() {
         setTimeout(() => {
             setisLoading(false);
             setAlertaMensagem({ abrir: true, mensagem: "Linhas corrigidas com sucesso!", sucesso: true });
-        }, 400)
+        }, 200)
     }
 
     const ConfirmarExcluirColuna = (col: string) => {
@@ -130,7 +144,7 @@ export default function Importation() {
         setTimeout(() => {
             setisLoading(false);
             setAlertaMensagem({ abrir: true, mensagem: "Linhas excluídas com sucesso!", sucesso: true });
-        }, 600)
+        }, 200)
     }
 
     const ConfirmarAdicionarColuna = () => {
@@ -176,6 +190,11 @@ export default function Importation() {
             CancelarAdicionarLinha();
             setisLoading(false)
         })
+
+        setTimeout(() => {
+            setisLoading(false);
+            setAlertaMensagem({ abrir: true, mensagem: "Coluna adicionada com sucesso!", sucesso: true });
+        }, 200)
     };
 
     const ConfirmarAdicionarLinha = () => {
@@ -196,7 +215,6 @@ export default function Importation() {
             setAlertaMensagem({ abrir: true, mensagem: "Linha adicionada com sucesso!", sucesso: true });
             setisLoading(false);
         }, 200)
-
     };
 
     const ConfirmarEditarLinha = () => {
@@ -343,8 +361,8 @@ export default function Importation() {
 
         setArrayEditando(linhas);
 
-        console.log("eDITANDO: ", linhas)
-        console.log("sucesso: ", linhasSucesso)
+        //console.log("eDITANDO: ", linhas)
+        //console.log("sucesso: ", linhasSucesso)
     };
 
     const handleImport = ($event: any) => {
@@ -397,7 +415,7 @@ export default function Importation() {
 
                             titles = alltitles.filter((item, index) => alltitles.indexOf(item) === index);
 
-                            console.log(titles, colunasD)
+                            //console.log(titles, colunasD)
 
                         } catch (error) {
                             alert("This document doesn't have columns")
@@ -444,7 +462,7 @@ export default function Importation() {
 
     const handleProcessarEnviar = () => {
         setTimeout(() => {
-            setisLoading(true);
+            setProcessing(true);
         }, 300)
         setisLoading(false);
     }
@@ -478,6 +496,7 @@ export default function Importation() {
             <ListaModeloCard />
             <Modelo setAbrirModelo={handleAbrirModelo} modelo={modelo} />
             <ImportarCard tamanhoArquivo={tamanhoArquivo} nomeArquivo={nomeArquivo} importar={handleImport} />
+
 
             {colunas.length > 0 && (
                 <div className={StyleClass.SelectStyle("container-one")}>
@@ -524,6 +543,7 @@ export default function Importation() {
                             <BotoesEdicao
                                 setPodeAdicionarColuna={setPodeAdicionarColuna}
                                 setPodeAdicionarLinha={setPodeAdicionarLinha}
+                                setPodeEditarColuna={setPodeEditarColuna}
                                 setPodeEditarLinha={setPodeEditarLinha}
                                 podeEditarLinha={podeEditarLinha}
                                 key="botoesEdicao" />)}
@@ -552,7 +572,7 @@ export default function Importation() {
                         <table className={StyleClass.SelectStyle("container-nova-coluna")}>
                             <thead className="w-full">
                                 <tr className={podeAdicionarColuna || podeEditarColuna ? "flex mt10p" : "flex"}>
-                                    <td className='text-center text-xs mx-1 w-16 flex'>
+                                    <td className='text-center text-xs mx-1 w-16 flex bg-gray-200'>
                                         <span className="border-b border-x w-16 mx-auto h-14 py-4 font-bold border-t">
                                             ID
                                         </span>
@@ -561,7 +581,7 @@ export default function Importation() {
                                         colunas.length
                                             ?
                                             colunas.map((col, index) => (
-                                                <td className='text-center w-auto font-bold w-80 mx-1 relative' key={index}>
+                                                <td className='text-center w-auto text-black font-bold w-80 mx-1 relative' key={index}>
                                                     {
                                                         podeEditarColuna && (
                                                             <span style={{ marginTop: '-45%' }} className={StyleClass.SelectStyle("pode-editar-coluna")}>
@@ -574,9 +594,14 @@ export default function Importation() {
                                                                 {podeExcluirColuna.podeExcluir === true && podeExcluirColuna.colunaSelecionada === col.nome ? <b className="text-xs mt-3 mb-2">Excluir coluna  "{podeExcluirColuna.colunaSelecionada}"</b> : ""}
                                                                 {podeExcluirColuna.podeExcluir === true && podeExcluirColuna.colunaSelecionada === col.nome && (
                                                                     <span className="w-full mb-1 h-16 flex items-center justify-center">
-                                                                        <button onClick={() => ConfirmarExcluirColuna(col.nome)} className="rounded text-white bg-green-500 px-6 mr-4 h-10 shadow-md">
-                                                                            Sim
-                                                                        </button>
+                                                                        <DialogComponent
+                                                                            isEditAdd={false}
+                                                                            messageConfirm={'Sim, excluir'}
+                                                                            className="rounded text-white bg-green-500 px-6 mr-4 h-10 shadow-md"
+                                                                            messageText="Confirma exclusão da coluna?"
+                                                                            setConfirmation={() => ConfirmarExcluirColuna(col.nome)}
+                                                                            nameButton="Sim"
+                                                                            key="confirmarExcluirColuna" />
                                                                         <button onClick={() => setPodeExcluirColuna({ colunaSelecionada: "", podeExcluir: false })} className="rounded text-black bg-gray-300 px-6 h-10 shadow-md">
                                                                             Não
                                                                         </button>
@@ -589,10 +614,10 @@ export default function Importation() {
 
                                                                             {
                                                                                 ValidateUtil.colunasPadrao.some(x => x.nome === col.nome) ?
-                                                                                    <Select disabled={true} value={col.formato} className="bg-gray-200 text-left" color="gray" variant="outlined" label="Formato">
+                                                                                    <Select disabled={true} value={col.formato} className="bg-gray-200 text-left" color="gray" variant="outlined" label="Column type">
                                                                                     </Select>
                                                                                     :
-                                                                                    <Select onChange={x => handleEditarFormatoColuna(x, index)} className="bg-gray-200 text-left" color="gray" variant="outlined" label="Formato">
+                                                                                    <Select onChange={x => handleEditarFormatoColuna(x, index)} className="bg-gray-200 text-left" color="gray" variant="outlined" label="Column type">
                                                                                         {
                                                                                             Options.formatoOptions.map((op, i) => (
                                                                                                 <Option key={i} className={op.value === "null" ? "font-semibold" : ""} disabled={op.value === "null"} value={op.value}>{op.label}</Option>
@@ -616,13 +641,13 @@ export default function Importation() {
                                             : <></>
                                     }
                                     {podeAdicionarColuna && (
-                                        <td key="novaColuna2" id="novaColuna2" className="flex border-2 border-cyan-500 pt-2 relative items-end w-96 ml-1 flex-col items-center justify-end" style={{ marginTop: '-10%' }}>
-                                            <span className="w-80 h-1/4 text-center px-1">
+                                        <td key="novaColuna2" id="novaColuna2" className="flex border-2 border-cyan-500 pt-2 relative items-end w-80 ml-1 flex-col items-center justify-end" style={{ marginTop: '-10%' }}>
+                                            <span className="w-72 h-1/4 text-center px-1">
                                                 <Input variant="outlined" onChange={x => setNomeNovaColuna(x.currentTarget.value)} label="Clique para nomear a coluna" color="gray" />
                                             </span>
                                             <span className="w-full flex items-center h-1/4 text-xs justify-center text-gray-400 cursor-default">Selecione a formatação dos dados*</span>
-                                            <span className=" h-1/4 w-80 text-center flex items-center justify-center pb-2">
-                                                <Select onChange={option => handleSetFormatoColuna(option)} color="gray" variant="outlined" label="Formato">
+                                            <span className=" h-1/4 w-72 text-center flex items-center justify-center pb-2">
+                                                <Select onChange={option => handleSetFormatoColuna(option)} color="gray" variant="outlined" label="Column type">
                                                     {
                                                         Options.formatoOptions.map((op, i) => (
                                                             <Option key={i} className={op.value === "null" ? "font-semibold" : ""} disabled={op.value === "null"} value={op.value}>{op.label}</Option>
@@ -630,7 +655,7 @@ export default function Importation() {
                                                     }
                                                 </Select>
                                             </span>
-                                            <span className="capitalize text-black bg-cyan-500 w-96 h-14 flex items-center justify-center text-xs">
+                                            <span className="text-black font-bold bg-cyan-500 w-80 h-14 flex items-center justify-center text-xs">
                                                 {nomeNovaColuna}
                                             </span>
                                         </td>
@@ -652,10 +677,11 @@ export default function Importation() {
                                                     <td className='text-center w-auto text-sm mx-1 h-14' key={i}>
                                                         <label className="hidden"></label>
                                                         <InputMask
-                                                            className={podeEditarLinha ? "h-14 bg-white text-center w-80 h-full py-4 pode-editar-input" : "h-14 bg-white text-center w-80 h-full py-4 nao-pode-editar-input"}
+                                                            className={podeEditarLinha ? "linha-edicao h-14 bg-white text-center w-80 h-full py-4 pode-editar-input" : "h-14 bg-white text-center w-80 h-full py-4 nao-pode-editar-input"}
                                                             defaultValue={ValidateValues(linha[colunas[i].nome], t.formato)}
                                                             mask={FunctionsUtil.Mask(t.formato)}
                                                             onChange={handleEditarLinha}
+                                                            onFocus={(evt) => evt.currentTarget.select()}
                                                             disabled={!podeEditarLinha}
                                                             id={t.nome + ";" + index}
                                                             maskPlaceholder={null}>
@@ -674,10 +700,15 @@ export default function Importation() {
                                                             defaultValue={''}
                                                         >
                                                         </InputMask>
-                                                        <span className="border-r-2 border-l-2 border-b-2 border-b-cyan-500 border-r-cyan-500 border-l-cyan-500 w-96 h-16 flex items-center justify-center border" style={{ marginTop: '-2%' }}>
-                                                            <span onClick={ConfirmarAdicionarColuna} className={!novaColunaValida ? "h-8 pointer-events-none rounded bg-cyan-200 text-white px-6 py-2 text-xs mr-10" : "h-8 cursor-pointer rounded bg-cyan-500 text-white px-6 py-2 text-xs mr-10"}>
-                                                                Processar Edição
-                                                            </span>
+                                                        <span className="border-r-2 border-l-2 border-b-2 border-b-cyan-500 pt-10 border-r-cyan-500 border-l-cyan-500 w-80 h-24 flex items-center justify-center border" style={{ marginTop: '-12%' }}>
+                                                            <DialogComponent
+                                                                isEditAdd={true}
+                                                                messageConfirm={'Sim, confirmar'}
+                                                                className={!novaColunaValida ? "flex items-center h-8 pointer-events-none rounded bg-cyan-200 text-white px-6 py-2 text-xs mr-10" : "flex items-center h-8 cursor-pointer rounded bg-cyan-500 text-white px-6 py-2 text-xs mr-10"}
+                                                                messageText="Confirma adição dos dados?"
+                                                                setConfirmation={ConfirmarAdicionarColuna}
+                                                                nameButton="Processar Edição"
+                                                                key="confirmarAdicionarColuna" />
                                                             <span onClick={() => setPodeAdicionarColuna(false)} className="cursor-pointer text-xs underline">Cancelar</span>
                                                         </span>
                                                     </td>
@@ -690,6 +721,8 @@ export default function Importation() {
                     {podeEditarLinha && (
                         <div className={StyleClass.SelectStyle("container-editar-linha")}>
                             <DialogComponent
+                                isEditAdd={true}
+                                messageConfirm={'Sim, confirmar'}
                                 className={StyleClass.SelectStyle("dialog-confirma-edicao-linha")}
                                 messageText="Confirma edição dos dados?"
                                 setConfirmation={ConfirmarEditarLinha}
@@ -704,6 +737,7 @@ export default function Importation() {
                     )}
 
                     <hr className="mt-2" />
+
                     <BotoesFinalizar
                         ConfirmarExcluirLinhasInvalidas={ConfirmarExcluirLinhasInvalidas}
                         handleProcessarEnviar={handleProcessarEnviar}
@@ -717,6 +751,8 @@ export default function Importation() {
                 </div>
             )}
 
+
+
             <SnackbarComponent
                 message={alertaMensagem.mensagem}
                 sucess={alertaMensagem.sucesso}
@@ -726,6 +762,11 @@ export default function Importation() {
             <Loading
                 children={isLoading}
                 key="loadingCard" />
+
+            {processing ? (
+                <div id="processing" className="top-0 fixed h-14 flex items-center justify-center bg-green-400 text-sm">Ficheiro enviado com <b className="ml-1"> sucesso</b>!</div>
+            ) : ''}
+
         </div>
     )
 }

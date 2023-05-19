@@ -47,7 +47,7 @@ const SnackbarComponent = (props: Props) => {
                     key={vertical + horizontal}
                 >
                     <div className={props.sucess ?
-                        "border border-green-400 text-sm bg-green-600  text-white  rounded h-10 flex items-center justify-center  px-6"
+                        "border border-black text-xs bg-black text-white  h-10 flex items-center justify-center  px-6 opacity-80"
                         :
                         "text-sm border border-red-200"
                     }>
